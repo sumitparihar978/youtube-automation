@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+@theme {
+  --color-yt-red: #ff0000;
+  --color-yt-red-dark: #cc0000;
+  --color-yt-dark: #0f0f0f;
+  --color-yt-dark-2: #1a1a2e;
+  --color-yt-dark-3: #16213e;
+  --color-yt-dark-4: #1e293b;
+  --color-yt-surface: #1e1e30;
+  --color-yt-surface-2: #252540;
+  --color-yt-border: #2d2d4a;
+  --color-yt-text: #e2e8f0;
+  --color-yt-text-dim: #94a3b8;
+  --color-yt-accent: #7c3aed;
+  --color-yt-accent-2: #06b6d4;
+  --color-yt-green: #22c55e;
+  --color-yt-yellow: #eab308;
+  --color-yt-orange: #f97316;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #2d2d4a #1a1a2e;
+}
+
+body {
+  background-color: #0f0f0f;
+  color: #e2e8f0;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-12px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.4); }
+  50% { box-shadow: 0 0 20px 4px rgba(124, 58, 237, 0.2); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.3s ease-out forwards;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.gradient-border {
+  position: relative;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, #7c3aed, #06b6d4);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
